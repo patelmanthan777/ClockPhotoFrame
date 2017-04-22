@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Clock Photo Frame</string>
+    <string name="wallpaper_lbl">vkm</string>
+    <string name="display_hand_sec">Second</string>
+    <string name="wallpaper_description">Setting Wallpaer</string>
+    <string name="count_down_title">Count</string>
+    <string name="select_text">Select Text</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="settingsname">Setting Name</string>
+    <string name="bubble_number_title">bubble_number_title</string>
+    <string name="saving_image">Save Image</string>
+    <string name="not_enough_space">not enough space</string>
+</resources>

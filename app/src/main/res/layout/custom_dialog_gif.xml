@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@drawable/dialog_bg"
+        android:gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:background="@drawable/bg_dialog_title"
+            android:id="@id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="5dp" />
+
+        <WebView
+            android:gravity="center"
+            android:id="@+id/message"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="300dp" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="2.0">
+
+            <Button
+                android:background="@drawable/bg_dialog_title"
+                android:id="@+id/ok"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.0"
+                android:layout_width="match_parent"
+                android:text="Ok"
+                android:textColor="@color/White"/>
+
+            <Button
+                android:background="@drawable/bg_dialog_title"
+                android:id="@+id/close"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.0"
+                android:layout_width="match_parent"
+                android:text="Don't show again"
+                android:textColor="@color/White" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:background="@drawable/bg_circle"
+        android:id="@+id/close_button"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_help_black" />
+</RelativeLayout>

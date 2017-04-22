@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app1="http://schemas.android.com/apk/res/android"
+    app1:key="patternwallpaper_settings"
+    app1:title="Photo on Clock">
+    <com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory app1:title="@string/settingsname">
+        <CheckBoxPreference
+            app1:defaultValue="false"
+            app1:key="secneedel_photo"
+            app1:title="On/Off smooth secneedle" />
+    </com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory>
+    <com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory app1:title="CountDown Settings" />
+    <ListPreference
+        app1:defaultValue="1"
+        app1:entries="@array/countdown_list"
+        app1:entryValues="@array/countdown_value"
+        app1:key="countdown_photo"
+        app1:summary="select countdown event"
+        app1:title="Countdown event" />
+    <com.apptrends.photo.analog.clock.digital.clock.photo.editor.photo_on_clock.service_animations.ColorPreference
+        app1:defaultValue="ffffff"
+        app1:key="text_color_photo"
+        app1:summary="Change the CountDown Text Color "
+        app1:title="Text Best" />
+    <com.apptrends.photo.analog.clock.digital.clock.photo.editor.photo_on_clock.service_animations.ImageListTextPreference
+        app1:defaultValue="0"
+        app1:entries="@array/styleentries"
+        app1:entryValues="@array/stylevalus"
+        app1:key="style_photo"
+        app1:summary="Select the Countdown Text Style"
+        app1:title="CountDown Text Style" />
+    <com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory
+        app1:key="love_key"
+        app1:title="Animation Settings">
+        <CheckBoxPreference
+            app1:defaultValue="true"
+            app1:key="animations_photo"
+            app1:summary="Display Animation on screen"
+            app1:title="Animations" />
+        <com.tinyapps7.clockphotoframe.settings.ImageListPreference
+            app1:defaultValue="0"
+            app1:entries="@array/Heart_direction_list"
+
+            app1:entryValues="@array/Heart_direction_value"
+            app1:key="Heart_direction_photo"
+            app1:summary="Choose the type of Animation"
+            app1:title="Animation type" />
+        <com.tinyapps7.clockphotoframe.settings.ImageListPreference
+            app1:defaultValue="40"
+            app1:key="bubblenumber_photo"
+            app1:summary="Choose the objects amount"
+            app1:title="@string/bubble_number_title" />
+    </com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory>
+
+
+    <com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory
+        app1:title="Double Tap Settings">
+        <CheckBoxPreference
+            app1:defaultValue="false"
+            app1:key="double"
+            app1:title="Double tap Shortcut " />
+    </com.tinyapps7.clockphotoframe.settings.UdinicPreferenceCategory>
+</PreferenceScreen>

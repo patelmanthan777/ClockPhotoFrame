@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Datestyle_list">
+        <item>31 January 2015</item>
+        <item>January 31, 2015</item>
+        <item>31 Jan 2015</item>
+        <item>Jan 31, 2015</item>
+        <item>31/01/2015</item>
+        <item>01/31/2015</item>
+        <item>31-01-2015</item>
+    </string-array>
+    <string-array name="Datestyle_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="Heart_direction_list">
+        <item>Snow Animation</item>
+        <item>Rose petals Animation</item>
+        <item>Bubble Animation</item>
+        <item>Fireflies Animation</item>
+        <item>Leafs Animation</item>
+        <item>Rain Animation</item>
+        <item>Love Animation</item>
+    </string-array>
+    <string-array name="Heart_direction_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="alignment_list">
+        <item>Top 100%</item>
+        <item>Top 50%</item>
+        <item>Middle</item>
+        <item>Bottom 50%</item>
+        <item>Bottom 100%</item>
+    </string-array>
+    <string-array name="appicon">
+        <item>smartcallernameannouncer</item>
+        <item>mobilesimlocationinfo</item>
+        <item>birthdayphotoframes</item>
+        <item>photoclocklivewallpaper</item>
+        <item>birthdaygreetingcardsmaker</item>
+        <item>cellphonelocationtracker</item>
+    </string-array>
+    <string-array name="appiconexit">
+        <item>allphotoframes</item>
+        <item>collagephotoedito</item>
+        <item>faceprojecterphoteditor</item>
+        <item>crazyphoteditor</item>
+        <item>mobilesimlocationinfo</item>
+        <item>cellphonelocationtracker</item>
+    </string-array>
+    <string-array name="applink">
+        <item>market://details?id=apptrends.smart_caller_name_announcer</item>
+        <item>market://details?id=apptrends.mobile_sim_and_location_info</item>
+        <item>market://details?id=s.hd_live_wallpaper.birthday_photo_frames</item>
+        <item>market://details?id=s.hd_live_wallpaper.photo_clock_live_wallpaper</item>
+        <item>market://details?id=s.hd_live_wallpaper.birthday_greeting_cards_maker</item>
+        <item>market://details?id=s.hd_live_wallpaper.cell_phone_location_tracker</item>
+    </string-array>
+    <string-array name="applinkexit">
+        <item>market://details?id=apptrends.happy_new_year_2017_celebrations_photo_frames_greetings_and_messages</item>
+        <item>market://details?id=apptrends.photography.photo_collage_photo_editor</item>
+        <item>market://details?id=apptrends.live_wallpaper.face_projector_photo_editor</item>
+        <item>market://details?id=apptrends.crazy_photo_editor</item>
+        <item>market://details?id=apptrends.mobile_sim_and_location_info</item>
+        <item>market://details?id=s.hd_live_wallpaper.cell_phone_location_tracker</item>
+    </string-array>
+    <string-array name="appname">
+        <item>Smart Caller Name Announcer</item>
+        <item>Mobile, SIM and Location Info</item>
+        <item>Birthday Photo Frames</item>
+        <item>Photo Clock Live Wallpaper</item>
+        <item>Birthday Greeting Cards Maker</item>
+        <item>Cell Phone Location Tracker</item>
+    </string-array>
+    <string-array name="appnameexit">
+        <item>All Photo Frames</item>
+        <item>Collage Photo Editor</item>
+        <item>Face Projector Photo Editor</item>
+        <item>Crazy Photo Editor</item>
+        <item>Mobile, SIM and Location Info</item>
+        <item>Cell Phone Location Tracker</item>
+    </string-array>
+    <string-array name="clockSize_list">
+        <item>Large</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="clockSize_list_photoclock">
+        <item>Large</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="clockSize_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="clockSize_value_photoclock">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="clock_size_list">
+        <item>Large</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+    <string-array name="clock_style_list">
+        <item>Normal</item>
+        <item>Gradient</item>
+    </string-array>
+    <array name="colors">
+        <item>@color/bk</item>
+        <item>@color/r</item>
+        <item>@color/g</item>
+        <item>@color/b</item>
+        <item>@color/y</item>
+        <item>@color/m</item>
+        <item>@color/c</item>
+        <item>@color/w</item>
+        <item>@color/p</item>
+    </array>
+    <string-array name="countdown_list">
+        <item>Custom CountDown</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="countdown_list_allah">
+        <item>Ramadan CountDown</item>
+        <item>Custom CountDown</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="countdown_list_photoclock">
+        <item>New year CountDown</item>
+        <item>Christmas Countdown</item>
+        <item>Pongal CountDown</item>
+        <item>"Valentine's day countDown"</item>
+        <item>Custom countDown</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="countdown_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="countdown_value_allah">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="countdown_value_photoclock">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="crescendo_values">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="date_format_list">
+        <item>31 December 2016</item>
+        <item>December 31,2016</item>
+        <item>31 Dec 2016</item>
+        <item>Dec 31,2016</item>
+        <item>31/12/2016</item>
+        <item>12/31/2016</item>
+        <item>12-31-2016</item>
+    </string-array>
+    <string-array name="delay_values">
+        <item>0</item>
+        <item>250</item>
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>7000</item>
+        <item>8000</item>
+        <item>9000</item>
+        <item>10000</item>
+    </string-array>
+    <string-array name="duration_values">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="halign_photoclock">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="halign_value_photoclock">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <array name="imageValue3">
+        <item>@drawable/snow</item>
+        <item>@drawable/roseflingicon</item>
+        <item>@drawable/bubble_1</item>
+        <item>@drawable/st4</item>
+        <item>@drawable/fficon</item>
+        <item>@drawable/rain</item>
+        <item>@drawable/love</item>
+    </array>
+    <string-array name="normal">
+        <item>normal</item>
+        <item>gradient</item>
+    </string-array>
+    <string-array name="normal_photoclock">
+        <item>normal</item>
+        <item>gradient</item>
+    </string-array>
+    <string-array name="normalvalues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="normalvalues_photoclock">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="smooth_value">
+        <item>normal</item>
+        <item>smooth</item>
+    </string-array>
+    <string-array name="smooth_value_photoclock">
+        <item>normal</item>
+        <item>smooth</item>
+    </string-array>
+    <string-array name="smootharray">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="smootharray_photoclock">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="styleentries">
+        <item>style 1</item>
+        <item>style 2</item>
+        <item>style 3</item>
+        <item>style 4</item>
+        <item>style 5</item>
+    </string-array>
+    <string-array name="styleentries_allah">
+        <item>style 1</item>
+        <item>style 2</item>
+        <item>style 3</item>
+    </string-array>
+    <string-array name="styleentries_photoclock">
+        <item>style 1</item>
+        <item>style 2</item>
+        <item>style 3</item>
+        <item>style 4</item>
+        <item>style 5</item>
+    </string-array>
+    <string-array name="stylevalus">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="stylevalus_allah">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="stylevalus_photoclock">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="valign">
+        <item>Top 100%</item>
+        <item>Top 50%</item>
+        <item>Middle</item>
+        <item>Bottom 50%</item>
+        <item>Bottom 100%</item>
+    </string-array>
+    <string-array name="valign_photoclock">
+        <item>Top</item>
+        <item>Middle</item>
+        <item>Bottom</item>
+    </string-array>
+    <string-array name="valign_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="valign_value_photoclock">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="volume_values">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+    </string-array>
+</resources>

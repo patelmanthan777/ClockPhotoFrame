@@ -169,7 +169,8 @@ public class PhotoImageActivity extends AppCompatActivity implements
     private File fileclock;
     private Bitmap background_photo;
     private File bgimg;
-    private int swipevalue_photo = 0;
+    private int swipevalue_photo = 1;
+    private String gal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,7 +190,7 @@ public class PhotoImageActivity extends AppCompatActivity implements
         this.pref = PreferenceManager.getDefaultSharedPreferences(this);
         this.editor = this.pref.edit();
         this.position = this.pref.getInt("photo_clock_pos", 1);
-        // setClocks(this.position);
+
 
         slideUp = AnimationUtils.loadAnimation(this, R.anim.layout_up);
         slideDown = AnimationUtils.loadAnimation(this, R.anim.layout_down);
@@ -215,16 +216,91 @@ public class PhotoImageActivity extends AppCompatActivity implements
         this.clockimage.setLayoutParams(layoutParams);
         dummygalleryimage.setLayoutParams(layoutParams);
         dummyclockimage.setLayoutParams(layoutParams);
-        backgroundimage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.c_bg1));
-        setClocks(postion_ck_img);
-        this.sample = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
-        // galleryimage.setImageBitmap(this.sample);
-        this.matrix.reset();
-        this.bmp = this.sample;
-        this.photo = this.bmp;
-        masking();
-        setBackgroundImgae(0);
+//        backgroundimage.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.c_bg1));
+//        setClocks(postion_ck_img);
+//        this.sample = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
+//        // galleryimage.setImageBitmap(this.sample);
+//        this.matrix.reset();
+//        this.bmp = this.sample;
+//        this.photo = this.bmp;
+//        masking();
+//        setBackgroundImgae(0);
+//        this.position = this.pref.getInt("photo_clock_pos", 0);
+//        setClocks(this.position);
 
+        //.......................
+        setBackgroundImgae(CLOCKIMAGE);
+        this.position = this.pref.getInt("photo_clock_pos", 0);
+        setClocks(this.position);
+        this.gal = this.pref.getString("bitmap", this.clockimagepath);
+        if (this.gal != null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = CLOCKIMAGE;
+            try {
+                options.inJustDecodeBounds = true;
+                int i2 = options.outWidth;
+                i = options.outHeight;
+                if (i2 > 1000 || i > 1000) {
+                    i2 = CLOCKIMAGE;
+                    while (options.outWidth / i2 >= 600 && options.outHeight / i2 >= 600) {
+                        i2 += CLOCKIMAGE;
+                    }
+                    options.inSampleSize = i2;
+                }
+                options.inJustDecodeBounds = false;
+                this.galBitmap = BitmapFactory.decodeFile(this.gal, options);
+                this.galBitmap = Bitmap.createBitmap(this.galBitmap, 0, 0, this.galBitmap.getWidth(), this.galBitmap.getHeight(), new Matrix(), true);
+            } catch (OutOfMemoryError e2) {
+               // e = e2;
+                e2.printStackTrace();
+                this.galleryimage.setImageBitmap(this.galBitmap);
+                this.matrix.reset();
+                this.bmp = this.galBitmap;
+                this.photo = this.bmp;
+                masking();
+//                this.clock_icons_view = (RecyclerView) findViewById(R.id.clock_icons_view);
+//                linearLayoutManager = new LinearLayoutManager(this);
+//                linearLayoutManager.setOrientation(0);
+//                this.clock_icons_view.setLayoutManager(linearLayoutManager);
+//                this.clock_icons_view.setAdapter(new MyAdapter(this, this.clock_icons, FrameType.CLOCKS, this.position));
+//                this.bg_icons_view = (RecyclerView) findViewById(R.id.bg_icons_view);
+//                linearLayoutManager = new LinearLayoutManager(this);
+//                linearLayoutManager.setOrientation(0);
+//                this.bg_icons_view.setLayoutManager(linearLayoutManager);
+//                this.bg_icons_view.setAdapter(new MyAdapter(this, this.bg_icons, FrameType.PHOTO_BG, CLOCKIMAGE));
+            } catch (Exception e3) {
+
+                e3.printStackTrace();
+                this.galleryimage.setImageBitmap(this.galBitmap);
+                this.matrix.reset();
+                this.bmp = this.galBitmap;
+                this.photo = this.bmp;
+                masking();
+//                this.clock_icons_view = (RecyclerView) findViewById(R.id.clock_icons_view);
+//                linearLayoutManager = new LinearLayoutManager(this);
+//                linearLayoutManager.setOrientation(0);
+//                this.clock_icons_view.setLayoutManager(linearLayoutManager);
+//                this.clock_icons_view.setAdapter(new MyAdapter(this, this.clock_icons, FrameType.CLOCKS, this.position));
+//                this.bg_icons_view = (RecyclerView) findViewById(R.id.bg_icons_view);
+//                linearLayoutManager = new LinearLayoutManager(this);
+//                linearLayoutManager.setOrientation(0);
+//                this.bg_icons_view.setLayoutManager(linearLayoutManager);
+//                this.bg_icons_view.setAdapter(new MyAdapter(this, this.bg_icons, FrameType.PHOTO_BG, CLOCKIMAGE));
+            }
+            this.galleryimage.setImageBitmap(this.galBitmap);
+            this.matrix.reset();
+            this.bmp = this.galBitmap;
+            this.photo = this.bmp;
+            masking();
+        } else {
+            this.sample = BitmapFactory.decodeResource(getResources(), R.drawable.pic1);
+            this.galleryimage.setImageBitmap(this.sample);
+            this.matrix.reset();
+            this.bmp = this.sample;
+            this.photo = this.bmp;
+            masking();
+        }
+        //...............................
     }
 
     public PhotoImageActivity() {
@@ -266,10 +342,10 @@ public class PhotoImageActivity extends AppCompatActivity implements
                 PhotoImageActivity.this.editor.putString("imagepath_photo", PhotoImageActivity.this.bgimg.getAbsolutePath()).apply();
                 PhotoImageActivity.this.editor.putInt("swipevalue_photo", PhotoImageActivity.this.swipevalue_photo).apply();
                 PhotoImageActivity.this.editor.putInt("photo_clock_pos", PhotoImageActivity.this.position).apply();
-                relative.setDrawingCacheEnabled(true);
-                PhotoImageActivity.this.editor.putString("textpath", PhotoImageActivity.this.BitMapToString(relative.getDrawingCache())).apply();
+              //  relative.setDrawingCacheEnabled(true);
+                //PhotoImageActivity.this.editor.putString("textpath", PhotoImageActivity.this.BitMapToString(relative.getDrawingCache())).apply();
                 PhotoImageActivity.this.editor.putBoolean("swathi", true).apply();
-                Log.e("vkm", "" + relative.getDrawingCache());
+
                 Intent intent = new Intent();
                 if (Build.VERSION.SDK_INT > 16) {
                     intent.setAction("android.service.wallpaper.CHANGE_LIVE_WALLPAPER");

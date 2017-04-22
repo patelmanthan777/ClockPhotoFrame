@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bg"
     android:orientation="vertical"
-    android:layout_marginLeft="2dp"
-    android:layout_width="100dp"
+    android:layout_marginLeft="1dp"
+    android:layout_width="70dp"
     android:layout_height="100dp">
 
 </ImageView>

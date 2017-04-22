@@ -275,7 +275,7 @@ import java.util.Random;
                     this.tleafList2.add(this.tb2);
                 }
                 //PhotoOnClockSettings.bubblecount1 =10
-                if (this.bubbleList.size() < 10) {
+                if (this.bubbleList.size() < 100) {
                     this.temp3 = this.bubble2;
                     this.bubbleList.add(new Heart_ToUp(this.temp3, this.heightOfCanvas, this.widthOfCanvas, this.bubble_size));
                 }
@@ -386,8 +386,10 @@ import java.util.Random;
                     Point point = new Point();
                     point.x = defaultDisplay.getWidth();
                     point.y = defaultDisplay.getHeight();
+                  //  Log.e("vkm","Display HXW"+lockCanvas.getWidth()+"+=+"+lockCanvas.getHeight());
                     int width = (lockCanvas.getWidth() / ZOOM) - (this.leaf.getWidth() / ZOOM);
                     int height = (lockCanvas.getHeight() / 3) - (this.leaf.getHeight() / ZOOM);
+                  //  Log.e("vkm","Display HXW"+width+"+=+"+height);
                     lockCanvas.save();
                     lockCanvas.translate(0.0f, (float) this.statusBarHeight);
                     Calendar instance = Calendar.getInstance();
@@ -402,6 +404,10 @@ import java.util.Random;
                         valueOf3 = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * valueOf.floatValue());
                         valueOf = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * valueOf4.floatValue());
                         valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
+
+                        Log.e("vkm","Value of "+valueOf);
+                        Log.e("vkm","valueOf2"+valueOf2);
+                        Log.e("vkm","valueOf3"+valueOf3);
                         this.paint.setFilterBitmap(true);
                         lockCanvas.save();
                         if (ClockWallpaperService.this.swathi) {
@@ -432,7 +438,10 @@ import java.util.Random;
                         valueOf2 = Float.valueOf(((float) timeInMillis) / 3600000.0f);
                         valueOf3 = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * ((float) currentTimeMillis));
                         valueOf = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * valueOf5.floatValue());
-                        valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
+                        //valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
+                        Log.e("vkm"," "+valueOf);
+                        Log.e("vkm",""+valueOf2);
+                        Log.e("vkm",""+valueOf3);
                         lockCanvas.save();
                         if (ClockWallpaperService.this.swathi) {
                             if (ClockWallpaperService.this.cBitmap != null) {
@@ -737,6 +746,7 @@ import java.util.Random;
             ClockWallpaperService.this.pref = PreferenceManager.getDefaultSharedPreferences(ClockWallpaperService.this);
             ClockWallpaperService.this.pref.registerOnSharedPreferenceChangeListener(this);
             ClockWallpaperService.this.swathi = ClockWallpaperService.this.pref.getBoolean("swathi", true);
+            Log.e("vkm","Swathi"+ClockWallpaperService.this.swathi);
             this.tleafList2 = new ArrayList();
             this.myleafList1 = new ArrayList();
             this.myleafList = new ArrayList();
@@ -833,7 +843,7 @@ import java.util.Random;
         }
 
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            if (this.double1) {
+            if (false) {
                 Intent intent = new Intent(ClockWallpaperService.this.getApplicationContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 ClockWallpaperService.this.startActivity(intent);

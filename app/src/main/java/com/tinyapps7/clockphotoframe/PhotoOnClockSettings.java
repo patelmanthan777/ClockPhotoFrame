@@ -6,5 +6,5 @@ package com.tinyapps7.clockphotoframe;
 
 public class PhotoOnClockSettings {
     public static String currentvalue;
-    public static int bubblecount1=20;
+    public static int bubblecount1=30;
 }

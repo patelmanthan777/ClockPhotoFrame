@@ -2,11 +2,8 @@ package com.tinyapps7.clockphotoframe;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.app.WallpaperManager;
-import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -14,6 +11,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
@@ -26,21 +24,17 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebSettings;
@@ -50,21 +44,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tinyapps7.clockphotoframe.AnalogClock.MyView;
+
 import com.tinyapps7.clockphotoframe.adapter.BackgroundImage;
 import com.tinyapps7.clockphotoframe.adapter.MyAdapter;
+import com.tinyapps7.clockphotoframe.stickerview.StickerTextView;
 import com.wang.avi.indicators.BallPulseIndicator;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -76,6 +71,9 @@ import butterknife.OnClick;
 public class PhotoImageActivity extends AppCompatActivity implements
         Animation.AnimationListener,
         MyAdapter.ItemClickListener, BackgroundImage.ItemClickListener_new1 {
+
+    @InjectView(R.id.sample)
+    RelativeLayout samples;
     private String imgPath;
 
     private static final int BACKGROUNDIMAGE = 2;
@@ -172,6 +170,7 @@ public class PhotoImageActivity extends AppCompatActivity implements
     private int swipevalue_photo = 1;
     private String gal;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -251,7 +250,7 @@ public class PhotoImageActivity extends AppCompatActivity implements
                 this.galBitmap = BitmapFactory.decodeFile(this.gal, options);
                 this.galBitmap = Bitmap.createBitmap(this.galBitmap, 0, 0, this.galBitmap.getWidth(), this.galBitmap.getHeight(), new Matrix(), true);
             } catch (OutOfMemoryError e2) {
-               // e = e2;
+                // e = e2;
                 e2.printStackTrace();
                 this.galleryimage.setImageBitmap(this.galBitmap);
                 this.matrix.reset();
@@ -301,6 +300,14 @@ public class PhotoImageActivity extends AppCompatActivity implements
             masking();
         }
         //...............................
+
+        StickerTextView  st_text=new StickerTextView(this);
+        st_text.setText("vkm");
+        st_text.setTColor(Color.BLUE);
+        relative.addView(st_text);
+
+        st_text.setControlItemsHidden(true);
+
     }
 
     public PhotoImageActivity() {
@@ -342,8 +349,8 @@ public class PhotoImageActivity extends AppCompatActivity implements
                 PhotoImageActivity.this.editor.putString("imagepath_photo", PhotoImageActivity.this.bgimg.getAbsolutePath()).apply();
                 PhotoImageActivity.this.editor.putInt("swipevalue_photo", PhotoImageActivity.this.swipevalue_photo).apply();
                 PhotoImageActivity.this.editor.putInt("photo_clock_pos", PhotoImageActivity.this.position).apply();
-              //  relative.setDrawingCacheEnabled(true);
-                //PhotoImageActivity.this.editor.putString("textpath", PhotoImageActivity.this.BitMapToString(relative.getDrawingCache())).apply();
+                relative.setDrawingCacheEnabled(true);
+                PhotoImageActivity.this.editor.putString("textpath", PhotoImageActivity.this.BitMapToString(relative.getDrawingCache())).apply();
                 PhotoImageActivity.this.editor.putBoolean("swathi", true).apply();
 
                 Intent intent = new Intent();
@@ -387,6 +394,8 @@ public class PhotoImageActivity extends AppCompatActivity implements
                 gallery.startAnimation(popup);
                 break;
             case R.id.addText:
+                addText.startAnimation(popup);
+                this.anim_val=3;
                 break;
 
             case R.id.addSave:
@@ -437,6 +446,9 @@ public class PhotoImageActivity extends AppCompatActivity implements
                 relative.buildDrawingCache();
                 relative.setDrawingCacheEnabled(true);
                 storeImage(relative.getDrawingCache());
+                break;
+            case 3:
+                // startActivity(new Intent(this,Text_frame.class));
                 break;
             default:
                 break;

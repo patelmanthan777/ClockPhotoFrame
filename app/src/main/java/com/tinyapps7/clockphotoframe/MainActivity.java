@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+
 import com.tinyapps7.clockphotoframe.utils_prj.AnimUtils;
 
 import butterknife.ButterKnife;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.analog:
                 animUtils.bounce(analog,this);
+               startActivity(new Intent(this, DigitalClock.class));
                 break;
             case R.id.digital:
                 animUtils.bounce(digital,this);

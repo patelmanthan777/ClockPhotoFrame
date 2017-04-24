@@ -50,7 +50,7 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Random;
 
-     class ClockWallpaperService extends WallpaperService {
+class ClockWallpaperService extends WallpaperService {
     private Bitmap backgroundBitmap_photo;
     private Bitmap background_photo;
     private Bitmap background_photo_viewpager;
@@ -167,6 +167,7 @@ import java.util.Random;
         int width;
         private int widthOfCanvas;
         Canvas lockCanvas;
+
         /* renamed from: com.apptrends.photo.analog.clock.digital.clock.photo.editor.ClockWallpaperService.WallpaperEngine.1 */
         class vkm extends Handler {
             vkm() {
@@ -269,7 +270,7 @@ import java.util.Random;
             }
             if (this.symbolheart) {
                 if (this.count % 5 == 0 && this.tleafList2.size() < 10)//..PhotoOnClockSettings.bubblecount1
-                     {
+                {
                     this.temp3 = this.bubble1;
                     this.tb2 = new Bubble_to_up(this.temp3, this.heightOfCanvas, this.widthOfCanvas);
                     this.tleafList2.add(this.tb2);
@@ -386,10 +387,10 @@ import java.util.Random;
                     Point point = new Point();
                     point.x = defaultDisplay.getWidth();
                     point.y = defaultDisplay.getHeight();
-                  //  Log.e("vkm","Display HXW"+lockCanvas.getWidth()+"+=+"+lockCanvas.getHeight());
+                    //  Log.e("vkm","Display HXW"+lockCanvas.getWidth()+"+=+"+lockCanvas.getHeight());
                     int width = (lockCanvas.getWidth() / ZOOM) - (this.leaf.getWidth() / ZOOM);
                     int height = (lockCanvas.getHeight() / 3) - (this.leaf.getHeight() / ZOOM);
-                  //  Log.e("vkm","Display HXW"+width+"+=+"+height);
+                     Log.e("vkm","Display HXW"+width+"+=+"+height);
                     lockCanvas.save();
                     lockCanvas.translate(0.0f, (float) this.statusBarHeight);
                     Calendar instance = Calendar.getInstance();
@@ -405,9 +406,9 @@ import java.util.Random;
                         valueOf = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * valueOf4.floatValue());
                         valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
 
-                        Log.e("vkm","Value of "+valueOf);
-                        Log.e("vkm","valueOf2"+valueOf2);
-                        Log.e("vkm","valueOf3"+valueOf3);
+                        Log.e("vkm", "Value of " + valueOf);
+                        Log.e("vkm", "valueOf2" + valueOf2);
+                        Log.e("vkm", "valueOf3" + valueOf3);
                         this.paint.setFilterBitmap(true);
                         lockCanvas.save();
                         if (ClockWallpaperService.this.swathi) {
@@ -438,15 +439,18 @@ import java.util.Random;
                         valueOf2 = Float.valueOf(((float) timeInMillis) / 3600000.0f);
                         valueOf3 = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * ((float) currentTimeMillis));
                         valueOf = Float.valueOf(this.degreeForOneMinuteOrSecond.floatValue() * valueOf5.floatValue());
-                        //valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
-                        Log.e("vkm"," "+valueOf);
-                        Log.e("vkm",""+valueOf2);
-                        Log.e("vkm",""+valueOf3);
+                        valueOf2 = Float.valueOf(valueOf2.floatValue() * this.degreeForOneHour.floatValue());
+//                        Log.e("vkm", " " + valueOf);
+//                        Log.e("vkm", "" + valueOf2);
+//                        Log.e("vkm", "" + valueOf3);
                         lockCanvas.save();
                         if (ClockWallpaperService.this.swathi) {
                             if (ClockWallpaperService.this.cBitmap != null) {
                                 lockCanvas.drawBitmap(ClockWallpaperService.this.cBitmap, (float) width, (float) height, this.paint);
-                                lockCanvas.drawBitmap(this.leaf, (float) width, (float) height, this.paint);
+                               lockCanvas.drawBitmap(this.leaf, (float) width, (float) height, this.paint);
+                                Log.e("vkm", " " + cBitmap.getHeight());
+                                Log.e("vkm", "" + cBitmap.getWidth());
+
                             } else {
                                 lockCanvas.drawBitmap(this.leaf, (float) width, (float) height, this.paint);
                             }
@@ -746,7 +750,7 @@ import java.util.Random;
             ClockWallpaperService.this.pref = PreferenceManager.getDefaultSharedPreferences(ClockWallpaperService.this);
             ClockWallpaperService.this.pref.registerOnSharedPreferenceChangeListener(this);
             ClockWallpaperService.this.swathi = ClockWallpaperService.this.pref.getBoolean("swathi", true);
-            Log.e("vkm","Swathi"+ClockWallpaperService.this.swathi);
+            Log.e("vkm", "Swathi" + ClockWallpaperService.this.swathi);
             this.tleafList2 = new ArrayList();
             this.myleafList1 = new ArrayList();
             this.myleafList = new ArrayList();
@@ -771,12 +775,13 @@ import java.util.Random;
             this.bubble1 = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.drawable.waterbubble_2);
             Constants.posval = ClockWallpaperService.this.pref.getInt("photo_clock_pos", NONE);
             updateclock(Constants.posval);
-            Log.e("vkm",""+Constants.posval);
+
             this.hoursBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_hr1);
             this.minutesBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_min1);
             this.secondsBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_sec1);
             this.temp = BitmapFactory.decodeFile(ClockWallpaperService.this.pref.getString("clockimg_photo", null));
             ClockWallpaperService.this.cBitmap = Bitmap.createBitmap(this.leaf.getWidth(), this.leaf.getHeight(), Config.ARGB_8888);
+            Log.e("vkm", "" +leaf.getHeight()+""+leaf.getWidth());
             Canvas canvas = new Canvas(ClockWallpaperService.this.cBitmap);
             if (this.temp != null) {
                 canvas.drawBitmap(this.temp, 0.0f, 0.0f, null);
@@ -865,8 +870,8 @@ import java.util.Random;
             int min = Math.min(PhotoOnClockSettings.bubblecount1, this.tleafList2.size());
             for (i = NONE; i < min; i += DRAG) {
                 Bubble_to_up bubble_to_up = (Bubble_to_up) this.tleafList2.get(i);
-                    x = bubble_to_up.getX() + (((float) bubble_to_up.getBitmap().getWidth()) / 2.0f);
-                 y = bubble_to_up.getY() + (((float) bubble_to_up.getBitmap().getHeight()) / 2.0f);
+                x = bubble_to_up.getX() + (((float) bubble_to_up.getBitmap().getWidth()) / 2.0f);
+                y = bubble_to_up.getY() + (((float) bubble_to_up.getBitmap().getHeight()) / 2.0f);
                 if (!bubble_to_up.isTouched() && Math.abs(x - this.touchX) <= 80.0f && Math.abs(y - this.touchY) <= 80.0f && x != this.touchX) {
                     bubble_to_up.setTouched(true);
                 }
@@ -945,7 +950,7 @@ import java.util.Random;
 
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
             boolean z = true;
-            Log.e("vkm","Str Shared"+str.hashCode());
+            Log.e("vkm", "Str Shared" + str.hashCode());
             switch (str.hashCode()) {
                 case -2070212699:
                     if (str.equals("clock_color_photo")) {
@@ -1134,7 +1139,7 @@ import java.util.Random;
                     ClockWallpaperService.this.matrix.set(ClockWallpaperService.this.savedMatrix);
                     ClockWallpaperService.this.matrix.postTranslate(motionEvent.getX() - this.start.x, motionEvent.getY() - this.start.y);
                     break;
-               // break;
+                // break;
                 case 5 /*5*/:
                     this.oldDist = spacing(motionEvent);
                     ClockWallpaperService.this.savedMatrix.set(ClockWallpaperService.this.matrix);
@@ -1227,6 +1232,7 @@ import java.util.Random;
 //                default:
 //            }
         }
+
         private void updateclock(int i) {
             // Log.e("testyash","in Update Clock");
 
@@ -1239,6 +1245,7 @@ import java.util.Random;
                     break;
                 case 1 /*1*/:
                     this.leaf = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.clock2);
+
                     this.hoursBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_hr2);
                     this.minutesBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_min2);
                     this.secondsBmp = BitmapFactory.decodeResource(ClockWallpaperService.this.getResources(), R.mipmap.c_sec2);
